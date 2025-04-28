@@ -25,12 +25,7 @@ Partial Class GraphicsExamples
         Me.components = New System.ComponentModel.Container()
         Me.DrawingPictureBox = New System.Windows.Forms.PictureBox()
         Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
-        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ForegroundColorTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BackgroundColorTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WaveButton = New System.Windows.Forms.Button()
         Me.ColorDialog = New System.Windows.Forms.ColorDialog()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -44,6 +39,7 @@ Partial Class GraphicsExamples
         Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.SelectColorButton = New System.Windows.Forms.Button()
+        Me.ExitButton = New System.Windows.Forms.Button()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TopMenuStrip.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -52,7 +48,7 @@ Partial Class GraphicsExamples
         '
         'DrawingPictureBox
         '
-        Me.DrawingPictureBox.Location = New System.Drawing.Point(46, 67)
+        Me.DrawingPictureBox.Location = New System.Drawing.Point(32, 27)
         Me.DrawingPictureBox.Name = "DrawingPictureBox"
         Me.DrawingPictureBox.Size = New System.Drawing.Size(732, 284)
         Me.DrawingPictureBox.TabIndex = 0
@@ -60,54 +56,22 @@ Partial Class GraphicsExamples
         '
         'TopMenuStrip
         '
-        Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HelpToolStripMenuItem})
         Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.TopMenuStrip.Name = "TopMenuStrip"
         Me.TopMenuStrip.Size = New System.Drawing.Size(800, 24)
         Me.TopMenuStrip.TabIndex = 1
         Me.TopMenuStrip.Text = "MenuStrip1"
         '
-        'FileToolStripMenuItem
-        '
-        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
-        Me.FileToolStripMenuItem.Text = "File"
-        '
-        'EditToolStripMenuItem
-        '
-        Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ForegroundColorTopMenuItem, Me.BackgroundColorTopMenuItem})
-        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
-        Me.EditToolStripMenuItem.Text = "Edit"
-        '
-        'ForegroundColorTopMenuItem
-        '
-        Me.ForegroundColorTopMenuItem.Name = "ForegroundColorTopMenuItem"
-        Me.ForegroundColorTopMenuItem.Size = New System.Drawing.Size(170, 22)
-        Me.ForegroundColorTopMenuItem.Text = "Foreground Color"
-        '
-        'BackgroundColorTopMenuItem
-        '
-        Me.BackgroundColorTopMenuItem.Name = "BackgroundColorTopMenuItem"
-        Me.BackgroundColorTopMenuItem.Size = New System.Drawing.Size(170, 22)
-        Me.BackgroundColorTopMenuItem.Text = "Background Color"
-        '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
-        Me.AboutToolStripMenuItem.Text = "About"
-        '
         'WaveButton
         '
-        Me.WaveButton.Location = New System.Drawing.Point(648, 357)
+        Me.WaveButton.Location = New System.Drawing.Point(620, 342)
         Me.WaveButton.Name = "WaveButton"
         Me.WaveButton.Size = New System.Drawing.Size(130, 67)
         Me.WaveButton.TabIndex = 2
@@ -170,7 +134,7 @@ Partial Class GraphicsExamples
         '
         'ClearButton
         '
-        Me.ClearButton.Location = New System.Drawing.Point(408, 357)
+        Me.ClearButton.Location = New System.Drawing.Point(416, 342)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(136, 67)
         Me.ClearButton.TabIndex = 3
@@ -179,18 +143,28 @@ Partial Class GraphicsExamples
         '
         'SelectColorButton
         '
-        Me.SelectColorButton.Location = New System.Drawing.Point(238, 357)
+        Me.SelectColorButton.Location = New System.Drawing.Point(229, 342)
         Me.SelectColorButton.Name = "SelectColorButton"
-        Me.SelectColorButton.Size = New System.Drawing.Size(75, 23)
+        Me.SelectColorButton.Size = New System.Drawing.Size(121, 67)
         Me.SelectColorButton.TabIndex = 4
         Me.SelectColorButton.Text = "Color"
         Me.SelectColorButton.UseVisualStyleBackColor = True
+        '
+        'ExitButton
+        '
+        Me.ExitButton.Location = New System.Drawing.Point(32, 342)
+        Me.ExitButton.Name = "ExitButton"
+        Me.ExitButton.Size = New System.Drawing.Size(122, 67)
+        Me.ExitButton.TabIndex = 5
+        Me.ExitButton.Text = "Exit"
+        Me.ExitButton.UseVisualStyleBackColor = True
         '
         'GraphicsExamples
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.SelectColorButton)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.WaveButton)
@@ -211,12 +185,7 @@ Partial Class GraphicsExamples
 
     Friend WithEvents DrawingPictureBox As PictureBox
     Friend WithEvents TopMenuStrip As MenuStrip
-    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ForegroundColorTopMenuItem As ToolStripMenuItem
-    Friend WithEvents BackgroundColorTopMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents WaveButton As Button
     Friend WithEvents ColorDialog As ColorDialog
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
@@ -230,4 +199,5 @@ Partial Class GraphicsExamples
     Friend WithEvents FileSystemWatcher1 As IO.FileSystemWatcher
     Friend WithEvents ClearButton As Button
     Friend WithEvents SelectColorButton As Button
+    Friend WithEvents ExitButton As Button
 End Class

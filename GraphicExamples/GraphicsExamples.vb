@@ -1,4 +1,8 @@
-﻿
+﻿'Alexis Villagran
+'RCET
+'Spring 2025
+'Etch-A-Sketch
+'https://github.com/alxsvxn/GraphicExamples
 Public Class GraphicsExamples
 
     Function ForegroundColor(Optional newColor As Color = Nothing) As Color
@@ -60,6 +64,35 @@ Public Class GraphicsExamples
     Sub ClearScreen()
         DrawingPictureBox.Refresh()
     End Sub
+    Sub DrawWaveforms()
+        Dim g As Graphics = DrawingPictureBox.CreateGraphics()
+        Dim centerY As Integer = DrawingPictureBox.Height \ 2
+        Dim scaleX As Double = 10
+        Dim scaleY As Double = 50
+        Dim sinPen As New Pen(Color.Blue)
+        Dim cosPen As New Pen(Color.Red)
+        Dim tanPen As New Pen(Color.Green)
+        Dim sinPoints(DrawingPictureBox.Width - 1) As Point
+        Dim cosPoints(DrawingPictureBox.Width - 1) As Point
+        Dim tanPoints(DrawingPictureBox.Width - 1) As Point
+
+        For x As Integer = 0 To DrawingPictureBox.Width - 1
+            sinPoints(x) = New Point(x, CInt(centerY - Math.Sin(x / scaleX) * scaleY))
+            cosPoints(x) = New Point(x, CInt(centerY - Math.Cos(x / scaleX) * scaleY))
+
+            Dim tanY As Double = Math.Tan(x / scaleX)
+            If Math.Abs(tanY) < 10 Then
+                tanPoints(x) = New Point(x, CInt(centerY - tanY * scaleY))
+            Else
+                tanPoints(x) = New Point(x, -1000) 'incase too big
+            End If
+        Next
+        g.DrawLines(sinPen, sinPoints)
+        g.DrawLines(cosPen, cosPoints)
+        g.DrawLines(tanPen, tanPoints)
+
+        g.Dispose()
+    End Sub
     Private Sub SelectColorButton_Click(sender As Object, e As EventArgs) Handles SelectColorButton.Click
         SelectColor()
     End Sub
@@ -67,58 +100,17 @@ Public Class GraphicsExamples
         ClearScreen()
     End Sub
 
+    Private Sub WaveButton_Click(sender As Object, e As EventArgs) Handles WaveButton.Click
+        DrawingPictureBox.Refresh()
+        DrawGraticule()
+        DrawWaveforms()
+    End Sub
 
-    '------------------------------------------------------------------------------------------------------------------------------
-    'NEWCODE ABOVE
-    '------------------------------------------------------------------------------------------------------------------------------
-    'Private Sub DrawGraticule(g As Graphics)
-    '    Dim width = DrawingPictureBox.Width
-    '    Dim height = DrawingPictureBox.Height
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        Me.Close()
+    End Sub
 
-    '    Dim hSpacing = width / 10   ' Divide into 10 vertical sections
-    '    Dim vSpacing = height / 10  ' Divide into 10 horizontal sections
-
-    '    Dim gridPen As New Pen(Color.LightGray, 1) ' Light grid color
-
-    '    ' Vertical lines
-    '    For i = 0 To 10
-    '        g.DrawLine(gridPen, CInt(i * hSpacing), 0, CInt(i * hSpacing), height)
-    '    Next
-
-    '    ' Horizontal lines
-    '    For i = 0 To 10
-    '        g.DrawLine(gridPen, 0, CInt(i * vSpacing), width, CInt(i * vSpacing))
-    '    Next
-    'End Sub
-    '' Event Handlers ----------------------------------------------------------
-
-    'Private Sub ChangeforegroundColor(sender As Object, e As EventArgs)
-    '    Dim result As DialogResult = ColorDialog.ShowDialog()
-    '    If result.ToString = "OK" Then
-    '        ForegroundColor(ColorDialog.Color)
-    '    End If
-    'End Sub
-
-    'Private Sub BackgroundColorContextMenuItem_Click(sender As Object, e As EventArgs) Handles BackgroundColorTopMenuItem.Click
-    '    Dim result As DialogResult = ColorDialog.ShowDialog()
-    '    If result.ToString = "OK" Then
-    '        BackgroundColor(ColorDialog.Color)
-    '        'This erases everything
-    '        'DrawingPictureBox.BackColor = BackgroundColor()
-    '    End If
-    'End Sub
-    'Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
-    '    Me.Hide()
-    '    AboutForm.Show()
-    'End Sub
-
-
-    'Private Sub WaveButton_Click(sender As Object, e As EventArgs) Handles WaveButton.Click
-    '    ' 1. Clear the PictureBox
-    '    DrawingPictureBox.Refresh()
-
-    '    ' 2. Force a repaint (triggers DrawingPictureBox_Paint)
-    '    DrawingPictureBox.Invalidate()
-    'End Sub
-
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        MessageBox.Show("Etch-A-Sketch 1.0.0" & vbCrLf & "Created by Alexis V", "About", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 End Class
