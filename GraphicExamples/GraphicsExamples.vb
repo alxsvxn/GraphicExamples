@@ -60,9 +60,13 @@ Public Class GraphicsExamples
     Sub ClearScreen()
         DrawingPictureBox.Refresh()
     End Sub
+    Private Sub SelectColorButton_Click(sender As Object, e As EventArgs) Handles SelectColorButton.Click
+        SelectColor()
+    End Sub
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         ClearScreen()
     End Sub
+
 
     '------------------------------------------------------------------------------------------------------------------------------
     'NEWCODE ABOVE

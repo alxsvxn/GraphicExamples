@@ -43,6 +43,7 @@ Partial Class GraphicsExamples
         Me.CustomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
         Me.ClearButton = New System.Windows.Forms.Button()
+        Me.SelectColorButton = New System.Windows.Forms.Button()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TopMenuStrip.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -176,11 +177,21 @@ Partial Class GraphicsExamples
         Me.ClearButton.Text = "Clear"
         Me.ClearButton.UseVisualStyleBackColor = True
         '
+        'SelectColorButton
+        '
+        Me.SelectColorButton.Location = New System.Drawing.Point(238, 357)
+        Me.SelectColorButton.Name = "SelectColorButton"
+        Me.SelectColorButton.Size = New System.Drawing.Size(75, 23)
+        Me.SelectColorButton.TabIndex = 4
+        Me.SelectColorButton.Text = "Color"
+        Me.SelectColorButton.UseVisualStyleBackColor = True
+        '
         'GraphicsExamples
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.SelectColorButton)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.WaveButton)
         Me.Controls.Add(Me.TopMenuStrip)
@@ -218,4 +229,5 @@ Partial Class GraphicsExamples
     Friend WithEvents CustomToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FileSystemWatcher1 As IO.FileSystemWatcher
     Friend WithEvents ClearButton As Button
+    Friend WithEvents SelectColorButton As Button
 End Class
