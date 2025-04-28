@@ -57,6 +57,12 @@ Public Class GraphicsExamples
         oldX = e.X
         oldY = e.Y
     End Sub
+    Sub ClearScreen()
+        DrawingPictureBox.Refresh()
+    End Sub
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        ClearScreen()
+    End Sub
 
     '------------------------------------------------------------------------------------------------------------------------------
     'NEWCODE ABOVE
